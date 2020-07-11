@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Todo } from './../model/Todo';
-import { threadId } from 'worker_threads';
 
 @Injectable({
   providedIn: 'root',
