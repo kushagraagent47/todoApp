@@ -29,7 +29,6 @@ export class TodoService {
     console.log(this.todos)
     if(todo.date === val) {
       this.curTodos[this.curTodos.length] = todo;
-      // console.log(this.curTodos)
     }
   }
 
@@ -66,10 +65,7 @@ export class TodoService {
       }
     }
     this.curTodos.filter(item => !!item);
-    console.log("ye chlgya")
-    console.log(this.curTodos)
-    console.log(val)
-  }
+    }
 
   
 }
