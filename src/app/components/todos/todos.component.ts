@@ -12,6 +12,7 @@ import { DataService } from '../../data.service';
 export class TodosComponent implements OnInit {
   message: string;
 
+
   faTrashAlt = faTrashAlt;
   todos: Todo[];
   constructor(private todoService: TodoService, private data: DataService) {}
@@ -21,7 +22,9 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodos().subscribe((todos) => {
       this.todos = todos;
     });
+   
   }
+
 
   changeTodoStatus(todo: Todo) {
     this.todoService.changeStatus(todo);

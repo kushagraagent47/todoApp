@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   dates: string[]
 
-  dateToAdd: string;
+  dateToAdd: any;
 
   getDate: string;
 
@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   handleAddDate() {
+    this.dateToAdd = this.dateToAdd.replace(/-0+/g, '-'); 
     this.todoService.addDate(this.dateToAdd);
     this.dateToAdd = "";
   }

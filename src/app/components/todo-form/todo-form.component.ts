@@ -17,6 +17,8 @@ export class TodoFormComponent implements OnInit {
 
   message: string
 
+  dateExist: boolean;
+
   currentDate: string
 
   constructor(private todoService: TodoService, private data: DataService) { }
@@ -27,8 +29,6 @@ export class TodoFormComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.currentDate = message)
   }
 
-  getDate = ""
-
   handleAdd() {
     const newTodo:Todo = {
       id: uuid(),
@@ -36,12 +36,9 @@ export class TodoFormComponent implements OnInit {
       isCompleted: false,
       date: this.currentDate,
     }
-
     this.todoService.addTodo(newTodo, this.currentDate);
     this.todoService.emptytodos(this.currentDate)
     this.todoTitle = ""
   }
-
-  
 
 }

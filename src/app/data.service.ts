@@ -11,7 +11,7 @@ export class DataService {
 
     newdate:any = this.year + "-" + this.month + "-" + this.day;
 
-    private messageSource = new BehaviorSubject<any>(this.newdate);
+    private messageSource = new BehaviorSubject<any>('');
     currentMessage = this.messageSource.asObservable();
 
     constructor() {
