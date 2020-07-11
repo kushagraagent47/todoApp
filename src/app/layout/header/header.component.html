@@ -1,0 +1,22 @@
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="input-group mb-3">
+    <input
+      type="date"
+      name="date"
+      placeholder="Enter A Date"
+      class="form-control"
+      [(ngModel)]="dateToAdd"
+    />
+    <div class="input-group-append">
+      <button (click)="handleAddDate()" class="btn btn-primary">
+        Add date
+      </button>
+    </div>
+  </div>
+  <a href="#" (click)="currentDate(dates)" *ngFor="let dates of dates">{{ dates }}</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+</div>
