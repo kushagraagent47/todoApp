@@ -12,9 +12,10 @@ export class HeaderComponent implements OnInit {
 
   dates: string[]
 
-  dateToAdd: any;
-
+  
   getDate: string;
+
+  message: string;
 
 
   @Output() messageEvent = new EventEmitter<string>();
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   constructor(private todoService: TodoService, private data: DataService) { }
 
   ngOnInit(): void {
+    this.data.currentMessage.subscribe((message) => (this.message = message));
     this.todoService.getDates().subscribe(dates => {
       this.dates = dates
     })
@@ -35,9 +37,8 @@ export class HeaderComponent implements OnInit {
   }
 
   handleAddDate() {
-    this.dateToAdd = this.dateToAdd.replace(/-0+/g, '-'); 
-    this.todoService.addDate(this.dateToAdd);
-    this.dateToAdd = "";
+    var len = this.dates.length + 1;
+    this.todoService.addDate(len);
   }
 
   sendData(val) {

@@ -1,15 +1,24 @@
-<ul class="list-group w-100" *ngFor="let todo of todos">
-    <li class="list-group-item d-flex justify-content-between w-100">
+<div class="card" *ngIf="todos.length > 0">
+  <div class="card-body">
+    <ul class="list-group w-100" *ngFor="let todo of todos">
+      <li class="list-group-item d-flex justify-content-between w-100">
         <span>
-            <input 
+          <input
             (change)="changeTodoStatus(todo)"
             type="checkbox"
-            [checked]="todo.isCompleted" />
+            [checked]="todo.isCompleted"
+          />
         </span>
-        <span [ngClass]="{completedTodo: todo.isCompleted}">{{todo.title | uppercase}}</span>
-        <span [ngClass]="{completedTodo: todo.isCompleted}">{{todo.date}}</span>
+        <span [ngClass]="{ completedTodo: todo.isCompleted }">{{
+          todo.title | uppercase
+        }}</span>
+        <span [ngClass]="{ completedTodo: todo.isCompleted }">{{
+          todo.date
+        }}</span>
         <span>
-            <fa-icon [icon]="faTrashAlt" (click)="deleteTodo(todo)" > Del</fa-icon>
+          <fa-icon [icon]="faTrashAlt" (click)="deleteTodo(todo)"> Del</fa-icon>
         </span>
-    </li>
-</ul>
+      </li>
+    </ul>
+  </div>
+</div>

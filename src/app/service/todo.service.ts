@@ -32,7 +32,6 @@ export class TodoService {
     }
   }
 
-
   addDate(data) {
     this.dates.push(data);
   }
@@ -84,20 +83,22 @@ export class TodoService {
   }
 
   emptytodos = (val: any) => {
-    this.val = val;
-    var count = 0;
-    for (var j = 0; j < this.todos.length; j++) {
-      if (this.todos[j].date === this.val) {
-        this.curTodos[j - count] = this.todos[j];
-      }
-      if (this.todos[j].date !== this.val) {
-        count = count + 1;
-      }
-    }
+    for (var k = 0; k < this.todos.length; k++) {
+      this.val = val;
+      var count = 0;
 
-    for (var i = 0; i < this.curTodos.length; i++) {
-      if (this.curTodos[i].date !== val) {
-        this.curTodos.splice(i, 1);
+      for (var j = 0; j < this.todos.length; j++) {
+        if (this.todos[j].date === this.val) {
+          this.curTodos[j - count] = '';
+          this.curTodos[j - count] = this.todos[j];
+        } else {
+          count = count + 1;
+        }
+      }
+      for (var i = 0; i < this.curTodos.length; i++) {
+        if (this.curTodos[i].date !== val) {
+          this.curTodos.splice(i, 1);
+        }
       }
     }
   };
